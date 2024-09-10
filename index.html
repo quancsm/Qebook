@@ -1,12 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My GitHub Page</title>
-</head>
-<body>
-  <h1>Hello, World!</h1>
-  <p>This is my first GitHub Pages website.</p>
-</body>
+  <head>
+    <title>Calibre-Web | Discover (Random Books)</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Bootstrap -->
+    <link rel="apple-touch-icon" sizes="140x140" href="/static/favicon.ico">
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link href="/static/css/libs/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/static/css/style.css" rel="stylesheet" media="screen">
+    <link href="/static/css/upload.css" rel="stylesheet" media="screen">
+    
+  </head>
+  <body class="discover" data-text="Home" data-textback="Back">
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Calibre-Web</a>
+        </div>
+        <form class="navbar-form navbar-left" role="search" action="/search" method="GET">
+          <div class="form-group input-group input-group-sm">
+            <label for="query" class="sr-only">Search</label>
+            <input type="text" class="form-control" id="query" name="query" placeholder="Search Library" value="">
+            <span class="input-group-btn">
+              <button type="submit" id="query_submit" class="btn btn-default">Search</button>
+            </span>
+          </div>
+        </form>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/advsearch" id="advanced_search"><span class="glyphicon glyphicon-search"></span><span class="hidden-sm"> Advanced Search</span></a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right" id="main-nav">
+            <li class="top_tasks"><a id="top_tasks" href="/tasks"><span class="glyphicon glyphicon-tasks"></span> <span class="hidden-sm">Tasks</span></a></li>
+            <li><a id="top_admin" data-text="Settings" href="/admin/view"><span class="glyphicon glyphicon-dashboard"></span> <span class="hidden-sm">Admin</span></a></li>
+            <li><a id="top_user" data-text="Account" href="/me"><span class="glyphicon glyphicon-user"></span> <span class="hidden-sm">admin</span></a></li>
+            <li><a id="logout" href="/logout?next=/discover/stored/"><span class="glyphicon glyphicon-log-out"></span> <span class="hidden-sm">Logout</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="col-sm-2">
+          <nav class="navigation">
+            <ul class="list-unstyled" id="scnd-nav">
+              <li class="nav-head hidden-xs">Browse</li>
+              <li id="nav_new"><a href="/?data=root&amp;sort_param=stored"><span class="glyphicon glyphicon-book"></span> Books</a></li>
+              <li id="nav_hot"><a href="/hot/stored/"><span class="glyphicon glyphicon-fire"></span> Hot Books</a></li>
+              <li id="nav_download"><a href="/downloadlist?data=download&amp;sort_param=stored"><span class="glyphicon glyphicon-download"></span> Downloaded Books</a></li>
+              <li id="nav_rated"><a href="/rated/stored/"><span class="glyphicon glyphicon-star"></span> Top Rated Books</a></li>
+              <li id="nav_read"><a href="/read/stored/"><span class="glyphicon glyphicon-eye-open"></span> Read Books</a></li>
+              <li id="nav_unread"><a href="/unread/stored/"><span class="glyphicon glyphicon-eye-close"></span> Unread Books</a></li>
+              <li id="nav_rand" class="active"><a href="/discover/stored/"><span class="glyphicon glyphicon-random"></span> Discover</a></li>
+            </ul>
+          </nav>
+        </div>
+        
+        <div class="col-sm-10">
+          <div class="discover load-more">
+            <h2 class="Discover (Random Books)">Discover (Random Books)</h2>
+            <div class="row display-flex">
+              <div class="col-sm-3 col-lg-2 col-xs-6 book session" id="books">
+                <div class="cover">
+                  <a href="/book/680">
+                    <img src="/cover/680/og?c=1721398203" alt="Stretching Anatomy">
+                  </a>
+                </div>
+                <div class="meta">
+                  <a href="/book/680">
+                    <p title="Stretching Anatomy" class="title">Stretching Anatomy</p>
+                  </a>
+                  <p class="author"><a href="/author/stored/425">Arnold G. Nelson</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/static/js/libs/jquery.min.js"></script>
+    <script src="/static/js/libs/bootstrap.min.js"></script>
+  </body>
 </html>
